@@ -12,7 +12,12 @@ module.exports = {
             name: "products", //added for clarity. only needed for remotes
             filename: "remoteEntry.js", //contains a list of files that are available from this project + directions on how to load them
             exposes: {
-                './ProductsIndex': "./src/index" //which files in our project are we gonna expose
+                './ProductsIndex': "./src/bootstrap" //which files in our project are we gonna expose
+            },
+            shared: {//specify the shared libs so it is not loaded more than one time in the browser
+                faker: {
+                    singleton: true
+                }
             }
         }),
         new HtmlWebpackPlugin({
