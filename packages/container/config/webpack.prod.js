@@ -9,13 +9,13 @@ const prodConfig = {
     mode: 'production',
     output: {
         filename: '[name].[contenthash].js',
-        publicPath: '/container/latest' //when HtmlWebpackPlugin tries to refer to some js file that has been created (takes the file name and prepend them with the public path)
+        publicPath: '/container/latest/' //when HtmlWebpackPlugin tries to refer to some js file that has been created (takes the file name and prepend them with the public path)
     },
     plugins: [
         new ModuleFederationPlugin({
             name: 'container',
             remotes: {
-                marketing: `marketing@${domain}/marketing/remoteEntry.js`
+                marketing: `marketing@${domain}/marketing/latest/remoteEntry.js`
             },
             shared: packageJson.dependencies
         })
